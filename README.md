@@ -1,79 +1,189 @@
-**Academate**
+# 🎓 Academate – PHP E-Learning Portal
 
-**Overview**:
-- **Project**: Academate — a simple PHP-based e-learning portal for managing streams, semesters, subjects, topics and learning materials.
-- **Stack**: PHP (procedural), MySQL, plain HTML/CSS (no frontend framework). Designed to run on a local XAMPP (Apache + MySQL) setup.
-
-**Features**:
-- **User registration & login**: Basic authentication under `auth/`.
-- **Admin panel**: Admin pages under `admin/` with management views for streams, subjects, topics and materials.
-- **Content pages**: Student-facing pages in `pages/` showing available subjects and topics.
-
-**Requirements**:
-- **XAMPP** (or other Apache + PHP + MySQL stack)
-- **PHP 7.0+** (or compatible)
-- **MySQL / MariaDB**
-
-**Quick Start (Windows, XAMPP)**
-- 1. Copy the repository to your XAMPP `htdocs` directory (example path):
-  - `C:\xampp\htdocs\Academate`
-- 2. Start Apache and MySQL from the XAMPP Control Panel.
-- 3. Import the database schema `elearning_portal.sql`:
-  - Using phpMyAdmin: open `http://localhost/phpmyadmin`, create a database named `elearning_portal`, then import `elearning_portal.sql`.
-  - Using the MySQL CLI (XAMPP):
-    - Open PowerShell and run:
-      `C:\xampp\mysql\bin\mysql.exe -u root -p elearning_portal < elearning_portal.sql`
-    - Press Enter at the password prompt if your MySQL root password is blank (default XAMPP).
-- 4. Open the app in your browser:
-  - `http://localhost/Academate/` (adjust the path if you used a different folder name).
-
-**Default Database Configuration**
-- The DB connection is configured in `includes/db.php`.
-- Default values (for XAMPP):
-  - Host: `localhost`
-  - User: `root`
-  - Password: `` (empty)
-  - Database: `elearning_portal`
-- If you change DB credentials, update `includes/db.php` accordingly.
-
-**Default Admin Credentials (local/dev only)**
-- The admin login page (`admin/login.php`) uses demo credentials by default (replace with a proper DB-driven auth for production):
-  - **Username**: `admin`
-  - **Password**: `admin123`
-
-**Project Structure (important files)**
-- `elearning_portal.sql`: Database schema + sample data to import.
-- `index.php`: Entry landing page.
-- `admin/`: Admin-facing pages (login, dashboard, management views).
-- `auth/`: Registration/login/logout for users.
-- `includes/`:
-  - `db.php`: Database connection file.
-  - `header.php`, `footer.php`: Shared layout parts.
-  - `admin_check.php`, `auth_check.php`: Access control helpers.
-- `assets/style.css`: Main stylesheet.
-- `pages/`: Student-facing views (dashboard, subjects, topics, etc.).
-
-**Usage Notes & Next Steps**
-- This project uses simple procedural PHP and minimal validation — intended as a learning/demo app. For production usage you should:
-  - Implement database-backed user/auth management (do not use hard-coded credentials).
-  - Use prepared statements or an ORM to prevent SQL injection.
-  - Add proper input validation, password hashing, and session protections.
-  - Move configuration values (e.g., DB credentials) to environment variables or a configuration file not committed to source control.
-
-**Troubleshooting**
-- If you see DB connection errors:
-  - Ensure MySQL service is running in XAMPP.
-  - Verify `includes/db.php` values match your MySQL setup.
-  - Confirm the `elearning_portal` database exists.
-- If styling looks broken:
-  - Ensure `assets/style.css` is reachable and the app is served from the expected folder (`/Academate/`).
-
-**Contributing**
-- Feel free to open issues or submit PRs to improve structure, security, and features. For small fixes, update the relevant file and include a short description of the change.
-
-**License & Contact**
-- No license file is included. Add a `LICENSE` if you want to specify reuse terms.
-- For questions, contact the repository owner or create an issue in the repo.
+A simple and lightweight **PHP-based e-learning portal** to manage academic content like **streams, semesters, subjects, topics, and learning materials**. Built for learning purposes using **procedural PHP** and a clean, minimal stack.
 
 ---
-Created for local development and learning. Replace demo settings before using in production.
+
+## ✨ Features
+
+✅ User Registration & Login
+✅ Admin Dashboard to Manage Content
+✅ Student-Friendly Content Browsing
+✅ Simple, Clean UI (Plain HTML + CSS)
+✅ Runs Smoothly on XAMPP (Apache + MySQL)
+
+---
+
+## 🛠 Tech Stack
+
+* **Backend**: PHP (Procedural)
+* **Database**: MySQL / MariaDB
+* **Frontend**: HTML + CSS
+* **Server**: Apache (via XAMPP)
+
+---
+
+## 📦 Requirements
+
+Make sure you have:
+
+* XAMPP / WAMP / MAMP installed
+* PHP 7.0+
+* MySQL / MariaDB
+
+---
+
+## 🚀 Quick Start Guide (Windows + XAMPP)
+
+### 1️⃣ Move Project into `htdocs`
+
+```plaintext
+C:\xampp\htdocs\Academate
+```
+
+---
+
+### 2️⃣ Start Services
+
+Open **XAMPP Control Panel** and start:
+
+* ✅ Apache
+* ✅ MySQL
+
+---
+
+### 3️⃣ Import Database
+
+* Open:
+
+  ```
+  http://localhost/phpmyadmin
+  ```
+* Create database:
+
+  ```
+  elearning_portal
+  ```
+
+### 4️⃣ Open the Project
+
+In your browser:
+
+```
+http://localhost/Academate/
+```
+
+---
+
+## 🔐 Default Login Credentials (For Demo)
+
+### Admin Login
+
+| Field    | Value    |
+| -------- | -------- |
+| Username | admin    |
+| Password | admin123 |
+
+⚠ Replace these in production.
+
+---
+
+## ⚙ Database Configuration
+
+File:
+
+```plaintext
+includes/db.php
+```
+
+Default settings:
+
+```php
+Host: localhost
+User: root
+Password: (empty)
+Database: elearning_portal
+```
+
+---
+
+## 📁 Project Structure
+
+```plaintext
+Academate/
+│
+├── index.php
+│
+├── admin/
+│   ├── login.php
+│   ├── dashboard.php
+│
+├── auth/
+│   ├── login.php
+│   ├── register.php
+│
+├── includes/
+│   ├── db.php
+│   ├── header.php
+│   ├── footer.php
+│   ├── auth_check.php
+│   └── admin_check.php
+│
+├── assets/
+│   └── style.css
+│
+└── pages/
+    ├── subjects.php
+    └── topics.php
+```
+
+---
+
+## 🔒 Recommended Improvements (For Production)
+
+You **should add**:
+
+* ✅ Prepared statements (SQL Injection protection)
+* ✅ Password hashing (`password_hash()`)
+* ✅ Environment variables for DB credentials
+* ✅ Better session security
+* ✅ Input validation + sanitization
+
+---
+
+## 🛠 Troubleshooting
+
+**Database connection failed?**
+
+✔ Check MySQL service is running
+✔ Verify `includes/db.php` credentials
+✔ Ensure database exists
+
+**CSS not loading?**
+
+✔ Ensure `assets/style.css` path is correct
+
+---
+
+## 🤝 Contributing
+
+Want to improve this project?
+
+1. Fork the repository
+2. Make your changes
+3. Submit a Pull Request 🚀
+
+---
+
+## 📜 License
+
+No license is currently added.
+You can add one by creating a `LICENSE` file.
+
+---
+
+## 📬 Contact
+
+For questions or suggestions, open an **Issue** or contact the repository owner.
+
+---
