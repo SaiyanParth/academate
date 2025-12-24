@@ -43,7 +43,6 @@ Open XAMPP Control Panel and start:
 ✅ MySQL
 
 3️⃣ Import Database
-Method A (phpMyAdmin)
 
 Open:
 
@@ -52,19 +51,7 @@ http://localhost/phpmyadmin
 
 Create database:
 
-elearning_portal
-
-
-Click Import → Select elearning_portal.sql
-
-Method B (MySQL CLI)
-
-Open PowerShell and run:
-
-C:\xampp\mysql\bin\mysql.exe -u root -p elearning_portal < elearning_portal.sql
-
-
-➡ Just press Enter if no password is set.
+academate
 
 4️⃣ Open the Project
 
