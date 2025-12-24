@@ -94,34 +94,6 @@ User: root
 Password: (empty)
 Database: elearning_portal
 
-📁 Project Structure
-Academate/
-│
-├── elearning_portal.sql
-├── index.php
-│
-├── admin/
-│   ├── login.php
-│   ├── dashboard.php
-│
-├── auth/
-│   ├── login.php
-│   ├── register.php
-│
-├── includes/
-│   ├── db.php
-│   ├── header.php
-│   ├── footer.php
-│   ├── auth_check.php
-│   └── admin_check.php
-│
-├── assets/
-│   └── style.css
-│
-└── pages/
-    ├── subjects.php
-    └── topics.php
-
 🔒 Recommended Improvements (For Production)
 
 You should add:
